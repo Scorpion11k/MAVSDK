@@ -217,7 +217,7 @@ void CalibrationImpl::command_result_callback(
         case MAVLinkCommands::Result::TIMEOUT: {
             // Report all error cases.
             const auto timeout_result = calibration_result_from_command_result(command_result);
-            call_user_callback(_calibration_callback, timeout_result, Calibration::ProgressData());
+            call_user_callback(_calibration_callback, timeout_result, Calibration::ProgressData{});
             _calibration_callback = nullptr;
             _state = State::NONE;
             break;
